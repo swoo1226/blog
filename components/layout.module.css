@@ -16,8 +16,14 @@
 }
 
 .headerHomeImage {
-  width: 8rem;
-  height: 8rem;
+  /* width: 8rem; */
+  /* height: 8rem; */
+}
+
+.headerHomeImage:hover {
+  filter:blur(1px) grayscale(80%) opacity(70%);
+  transition: 0.3s ease-out;
+  transform: scale(1.05);
 }
 
 .backToHome {
