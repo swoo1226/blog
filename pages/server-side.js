@@ -38,7 +38,7 @@ export default function Home({allPostsData, countries}) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const allPostsData = getSortedPostsData()
   const response = await client.query({
     query: gql`
