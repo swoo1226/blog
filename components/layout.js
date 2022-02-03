@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
+import sassStyles from '../styles/sample.module.scss'
 import Link from 'next/link'
 
 const name = 'Sangwoo Kim'
@@ -24,8 +25,14 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
+      {/* <header id={sassStyles.header}> */}
+        {/* <nav>
+          <Link href=""><a>Home</a></Link>
+          <Link href=""><a>About</a></Link>
+          <Link href=""><a>Contact</a></Link>
+          <Link href=""><a>Social</a></Link>
+        </nav> */}
+        {/* {home ? (
           <>
             <img
               src="/images/profile.jpg"
@@ -51,9 +58,9 @@ export default function Layout({ children, home }) {
               </Link>
             </h2>
           </>
-        )}
-      </header>
-      <main>{children}</main>
+        )} */}
+      {/* </header> */}
+      <main className={utilStyles.glass}>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href="/">
