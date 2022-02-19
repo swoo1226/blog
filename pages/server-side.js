@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import utilStyles from '../styles/utils.module.css'
 import {getSortedPostsData} from '../lib/posts'
 import {gql} from "@apollo/client"

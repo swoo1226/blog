@@ -1,8 +1,17 @@
 .container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  width: calc(100% - 10rem);
+  margin-left: 10rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  main {
+    max-width: 1080px;
+    max-height: 70%;
+    overflow-y: scroll;
+  }
 }
+
 
 .header {
   position: fixed;
