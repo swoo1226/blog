@@ -13,25 +13,26 @@ body {
   top: 0;
   /* height: 100%; */
   overflow: auto;
-  /* background-image: url('../public//images/macground.jpg');
-  background-size: cover;
-  background-repeat: no-repeat; */
-  background: radial-gradient(
-      circle at 50% 0,
-      rgba(255, 0, 0, 0.5),
-      rgba(255, 0, 0, 0) 70.71%
-    ),
-    radial-gradient(
-      circle at 6.7% 75%,
-      rgba(0, 0, 255, 0.5),
-      rgba(0, 0, 255, 0) 70.71%
-    ),
-    radial-gradient(
-        circle at 93.3% 75%,
-        rgba(0, 255, 0, 0.5),
-        rgba(0, 255, 0, 0) 70.71%
-      )
-      beige;
+  background-color: #000;
+  // background-image: url('../public//images/macground.jpg');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background: radial-gradient(
+  //     circle at 50% 0,
+  //     rgba(255, 0, 0, 0.5),
+  //     rgba(255, 0, 0, 0) 70.71%
+  //   ),
+  //   radial-gradient(
+  //     circle at 6.7% 75%,
+  //     rgba(0, 0, 255, 0.5),
+  //     rgba(0, 0, 255, 0) 70.71%
+  //   ),
+  //   radial-gradient(
+  //       circle at 93.3% 75%,
+  //       rgba(0, 255, 0, 0.5),
+  //       rgba(0, 255, 0, 0) 70.71%
+  //     )
+  //     beige;
 }
 
 * {
