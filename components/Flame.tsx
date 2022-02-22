@@ -5,7 +5,7 @@ export default function Flame() {
             <div className='flame orange'></div>
             <div className='flame gold'></div>
             <div className='flame white'></div>
-            <div className='base blue'></div>
+
             <div className='base black'></div>
             <style jsx>{`
                 .flame-wrapper {
@@ -43,21 +43,22 @@ export default function Flame() {
                     box-shadow: 0px 0px 9px 4px lightyellow;
                 }
                 .base {
-                    border-radius: 50%;
                     position: absolute;
                 }
                 .blue {
-                    width: 10px;
-                    height: 10px;
-                    bottom: -5px;
+                    width: 5px;
+                    height: 5px;
+                    bottom: -3px;
+                    border-radius: 100px 0 0 0;
                     background: darkblue;
-                    box-shadow: 0px 0px 15px 10px darkblue;
+                    box-shadow: 0px 0px 10px 10px darkblue;
+                    transform: rotate(225deg);
                 }
                 .black {
                     width: 25px;
                     height: 25px;
                     background: black;
-                    bottom: -40px;
+                    bottom: -35px;
                     box-shadow: 0px 0px 10px 10px black;
                     border-radius: 50% 20% 30% 0;
                     transform: rotate(-45deg)
