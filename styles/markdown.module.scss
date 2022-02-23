@@ -3,13 +3,23 @@
         border-radius: 10px !important; 
     }
     &>p>code {
-      font-family: var(--font-family);
       font-size: 1em;
-    //   background-color: #6952b6;
-      border-radius: 4px;
-    //   color: #fff;
+      border-radius: 10px;
       font-weight: bold;
       line-height: 1;
       padding: 5px 7px 2px 7px;
+      background: #fff;
+    }
+    &>p>img {
+      margin: 1em auto;
+      max-width: 80%;
+    }
+    &>hr {
+      height: 0;
+      margin: 15px 0;
+      overflow: hidden;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #000;
     }
 }

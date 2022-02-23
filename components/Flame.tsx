@@ -17,6 +17,7 @@ export default function Flame() {
                     justify-content: center;
                     margin-left: 30px;
                     animation: flicker 0.8s ease-in infinite;
+                    z-index: 9;
                 }
                 .red {
                     width: 50px;
@@ -58,7 +59,7 @@ export default function Flame() {
                     width: 25px;
                     height: 25px;
                     background: black;
-                    bottom: -35px;
+                    bottom: -40px;
                     box-shadow: 0px 0px 10px 10px black;
                     border-radius: 50% 20% 30% 0;
                     transform: rotate(-45deg)
@@ -72,8 +73,8 @@ export default function Flame() {
                 @keyframes flicker {
                     0% {transform: rotate(-1deg);}
                     20% {transform: rotate(2deg) scaleY(1.05);}
-                    40% {transform: rotate(-2deg) scaleX(1.05);}
-                    60% {transform: rotate(1deg) scaleX(1.1);}
+                    40% {transform: rotate(-1deg) scaleX(1.03);}
+                    60% {transform: rotate(1deg)}
                     80% {transform: rotate(-1deg) scaleY(0.90);}
                     100% {transform: rotate(3deg);}
                 }

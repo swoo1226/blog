@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import Layout from '../../components/Layout'
 import {getAllPostIds, getPostData} from '../../lib/posts'
 import Date from '../../components/date'

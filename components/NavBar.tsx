@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
-import Flame from './Flame'
+
 export default function NavBar() {
+
     return (
-        <nav className={utilStyles.glass} id='nav'>
-            <Link href='/'>Home</Link>
+        <nav className={`${utilStyles.glass} menu`}>
+            <Link href='/'><a>Home</a></Link>
             <Link href='/about'><a>About</a></Link>
-            <Link href='/posts'>Posts</Link>
+            <Link href='/posts'><a>Posts</a></Link>
             <Link href='/contact'><a>Contact</a></Link>
             <style jsx>{`
                 nav {
@@ -22,6 +23,26 @@ export default function NavBar() {
                 }
                 nav:last-child {
                     margin-top: 20px;
+                }
+                .menu-inner {
+                    display: none;
+                }
+                @media (max-width: 1300px) {
+                    nav {
+                        width: 100%;
+                        height: 70px;
+                        flex-direction: row;
+                        
+                        overflow-x: scroll;
+                        position:relative;
+                        align-items: center;
+                        padding: 1rem;
+                        margin: auto;
+                    }
+                    .menu-inner {
+                        display: flex;
+                        gap: 2rem;
+                    }
                 }
             `}</style>
         </nav>
