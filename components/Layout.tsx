@@ -1,13 +1,17 @@
 import Head from 'next/head'
-import styles from './Layout.module.scss'
+import styles from '../styles/Layout.module.scss'
 import utilStyles from '../styles/utils.module.css'
 import sassStyles from '../styles/sample.module.scss'
 import Link from 'next/link'
 
+type LayoutPropsType = {
+  children: JSX.Element[] | JSX.Element
+}
+
 const name = 'Sangwoo Kim'
 export const siteTitle = 'As a Web Developer'
 
-export default function Layout({ children }) {
+export default function Layout({ children, ...props }: LayoutPropsType) {
   return (
     <div className={styles.container} id='Layout'>
       <Head>
@@ -28,6 +32,18 @@ export default function Layout({ children }) {
       <main className={utilStyles.glass}>
         {children}
       </main>
+      <style jsx>{`
+        @media (max-width: 1300px) {
+          #Layout {
+            width: 95%;
+            height: calc(100% - 70px);
+            margin: auto;
+          }
+          main {
+            max-height: 80%;
+          }
+        }
+      `}</style>
     </div>
   )
 }

@@ -1,0 +1,36 @@
+.container {
+    // background: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 1rem;
+}
+.neonInput {
+    outline: none;
+    height: 1.5rem;
+}
+
+.neon {
+    margin-top: 1rem;
+    color: #fff;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px rgb(231, 110, 237),
+        0 0 80px rgb(231, 110, 237),
+        0 0 90px rgb(231, 110, 237),
+        0 0 100px rgb(231, 110, 237),
+        0 0 150px rgb(231, 110, 237);
+    }
+    20%, 24%, 55% {       
+      text-shadow: none;
+    }
+  }

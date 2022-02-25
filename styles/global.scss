@@ -1,9 +1,27 @@
+$anchor-color: green;
+$anchor-visited-color: darkgrey;
+
+@font-face {
+  font-family: 'Designer Block';
+  font-weight: 200;
+  src: url('/public/fonts/DesignerBlock.TTF') format('truetype');
+}
+@font-face {
+  font-family: 'stormfaze';
+  font-weight: 200;
+  src: url('/public/fonts/stormfaze.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'audiowide';
+  font-weight: 200;
+  src: url('/public/fonts/Audiowide-Regular.ttf') format('truetype');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: audiowide, sans-serif, Oxygen,BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
   line-height: 1.6;
   font-size: 18px;
   position: fixed;
@@ -40,10 +58,15 @@ body {
 
 a {
   text-decoration: none;
+  color: $anchor-color;
 }
 
 a:hover {
-  text-decoration: underline;
+  filter: drop-shadow(10px 10px 20px white) invert(70%);
+}
+
+a:visited {
+  color: $anchor-visited-color;
 }
 
 img {
@@ -56,26 +79,7 @@ img {
   height: 100%;
 }
 
-@media (max-width: 1300px) {
-  #nav {
-    width: 80%;
-    height: 70px;
-    flex-direction: row;
-    gap: 30px;
-    overflow-x: scroll;
-    position:relative;
-    align-items: center;
-    padding: 1rem;
-    margin: auto;
-  }
-  #Layout {
-    width: 80%;
-    height: calc(100% - 70px);
-    margin: auto;
-    border
-    main {
-      max-height: none;
-      height: 100%;
-    }
-  }
-}
+// code {
+//   font-family: audiowide;
+// }
+

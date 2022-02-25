@@ -1,50 +1,48 @@
+import { useEffect } from 'react'
 import Link from 'next/link'
 import utilStyles from '../styles/utils.module.css'
-
+import styles from '../styles/navbar.module.scss'
+import { FaHome, FaUser, FaPizzaSlice, FaAt, FaDrawPolygon } from 'react-icons/fa';
+import React from 'react';
 export default function NavBar() {
-
+    useEffect(() => {
+        const callback = (entries: any, observer: any) => {
+            console.log(entries)
+        }
+        let options = {
+            root: document.querySelector('nav'),
+            rootMargin: '0px',
+            threshold: 1.0
+        }
+        let observer = new IntersectionObserver(callback, options)
+        let target = document.querySelector('.navMenu')
+        observer.observe(target!)
+    }, [])
+    const Links = [
+        'home',
+        'about',
+        'posts',
+        'contact',
+        'neon'
+    ]
+    const Icons: { [key: string]: any } = {
+        home: () => <FaHome size='24' />,
+        about: () => <FaUser size='24' />,
+        posts: () => <FaPizzaSlice size='24' />,
+        contact: () => <FaAt size='24' />,
+        neon: () => <FaDrawPolygon size='24' />
+    }
+    const linkMaker = (links: string[]) => {
+        return links.map((link: string, index: number) =>
+            <Link key={link} href={`/${link === 'home' ? '' : link}`}>
+                <a className='navMenu' onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => { e.currentTarget.scrollIntoView({ behavior: 'smooth' }) }}>{Icons[link]()}
+                    <span>{link.toUpperCase()}</span>
+                </a>
+            </Link>)
+    }
     return (
-        <nav className={`${utilStyles.glass} menu`}>
-            <Link href='/'><a>Home</a></Link>
-            <Link href='/about'><a>About</a></Link>
-            <Link href='/posts'><a>Posts</a></Link>
-            <Link href='/contact'><a>Contact</a></Link>
-            <style jsx>{`
-                nav {
-                    position: fixed;
-                    left: 0;
-                    top: 0;
-                    width: 10rem;
-                    height: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    padding: 3rem;
-                    gap: 2rem;
-                }
-                nav:last-child {
-                    margin-top: 20px;
-                }
-                .menu-inner {
-                    display: none;
-                }
-                @media (max-width: 1300px) {
-                    nav {
-                        width: 100%;
-                        height: 70px;
-                        flex-direction: row;
-                        
-                        overflow-x: scroll;
-                        position:relative;
-                        align-items: center;
-                        padding: 1rem;
-                        margin: auto;
-                    }
-                    .menu-inner {
-                        display: flex;
-                        gap: 2rem;
-                    }
-                }
-            `}</style>
+        <nav className={`${utilStyles.glass} ${styles.nav}`}>
+            {linkMaker(Links)}
         </nav>
     )
 }

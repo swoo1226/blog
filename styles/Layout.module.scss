@@ -8,6 +8,8 @@
   main {
     max-width: 1080px;
     max-height: 70%;
+    min-width: 400px;
+    min-height: 300px;
     overflow-y: scroll;
     z-index: 10;
   }
