@@ -3,6 +3,7 @@ import styles from '../styles/Layout.module.scss'
 import utilStyles from '../styles/utils.module.css'
 import sassStyles from '../styles/sample.module.scss'
 import Link from 'next/link'
+import Trigger from '../components/Trigger'
 
 type LayoutPropsType = {
   children: JSX.Element[] | JSX.Element
@@ -15,7 +16,7 @@ export default function Layout({ children, ...props }: LayoutPropsType) {
   return (
     <div className={styles.container} id='Layout'>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -27,9 +28,10 @@ export default function Layout({ children, ...props }: LayoutPropsType) {
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:card" content="summary_large_image" /> */}
       </Head>
       <main className={utilStyles.glass}>
+        <Trigger />
         {children}
       </main>
       <style jsx>{`

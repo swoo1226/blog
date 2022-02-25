@@ -1,0 +1,38 @@
+.triggers {
+    display: flex;
+    gap: 10px;
+    width: 80px;
+    margin-bottom: 1rem;
+    &:hover {
+        .icon {
+            visibility: visible;
+        }
+    }
+}
+.trigger {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    .icon {
+        visibility: hidden;
+    }
+    
+}
+
+.red {
+    background: rgb(254,95,86);
+}
+
+.orange {
+    background: rgb(254,188,46);
+}
+
+.green {
+    background: rgb(40,200,64);
+}
