@@ -1,0 +1,80 @@
+:root {
+  /* --primary-color: #d9eff7;
+  --secondary-color: #9bbbfc;
+  --tertiary-color: #4741a6;
+  --quaternary-color: #f9ce69; */
+  --metric-box-spacing: 1rem;
+  --metric-item-spacing: 0.8rem;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer {
+  text-align: center;
+}
+
+header {
+  padding: var(--metric-box-spacing);
+  font-size: 1.4em;
+}
+
+main {
+  min-height: calc(100vh - 7em);
+}
+
+article,
+aside {
+  padding: var(--metric-box-spacing);
+  margin: var(--metric-box-spacing);
+}
+
+header {
+  background-color: var(--primary-color);
+}
+article {
+  background-color: var(--secondary-color);
+}
+aside {
+  background-color: var(--tertiary-color);
+}
+footer {
+  padding: calc(var(--metric-box-spacing) / 2);
+  background-color: var(--quaternary-color);
+}
+
+.hstack {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: var(--metric-item-spacing);
+}
+.primary {
+  background-color: var(--primary-color);
+}
+.secondary {
+  background-color: var(--secondary-color);
+}
+.tertiary {
+  background-color: var(--tertiary-color);
+}
+.quaternary {
+  background-color: var(--quaternary-color);
+}
+
+.chip {
+  width: 2rem;
+  height: 2rem;
+  border: 1px dotted black;
+}
+
+@media (min-width: 45em) {
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}

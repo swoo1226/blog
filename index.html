@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      const PALETTE = {
+        1: {
+          primary: "#d9eff7",
+          secondary: "#9bbbfc",
+          tertiary: "#4741a6",
+          quaternary: "#f9ce69",
+        },
+        2: {
+          primary: "#eaf9e7",
+          secondary: "#c0e6ba",
+          tertiary: "#4ca771",
+          quaternary: "#013237",
+        },
+        3: {
+          primary: "#f6e8df",
+          secondary: "#feae96",
+          tertiary: "#fe979c",
+          quaternary: "#510B76",
+        },
+        4: {
+          primary: "#fcdc73",
+          secondary: "#e76268",
+          tertiary: "#193948",
+          quaternary: "#4fadc0",
+        },
+        5: {
+          primary: "#1a1a1a",
+          secondary: "#77acb7",
+          tertiary: "#f8b097",
+          quaternary: "#3fc495",
+        },
+      };
+      const PALETTE_NUMBERS = Object.keys(PALETTE).length;
+      function makeColors(paletteNumber) {
+        return Object.entries(PALETTE[paletteNumber]).map((colorInfo) => {
+          return [`--${colorInfo[0]}-color`, colorInfo[1]];
+        });
+      }
+      function changeColor(name, color) {
+        const root = document.querySelector(":root");
+        root.style.setProperty(name, color);
+      }
+      function changeRandomColorPalette() {
+        const randomPaletteNumber = Math.ceil(Math.random() * PALETTE_NUMBERS);
+        makeColors(randomPaletteNumber).map((colorInfo) => {
+          const [name, color] = colorInfo;
+          changeColor(name, color);
+        });
+      }
+      window.onload = () => {
+        changeRandomColorPalette();
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a><a href="/about">About</a
+        ><a href="/contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <h1>My web page</h1>
+      </article>
+      <aside>
+        <h2>History</h2>
+      </aside>
+    </main>
+    <!-- <button onclick="changeRandomColorPalette()">Change Color Palette</button> -->
+    <footer>
+      <div class="hstack">
+        <div class="primary chip"></div>
+        <div class="secondary chip"></div>
+        <div class="tertiary chip"></div>
+        <div class="quaternary chip"></div>
+      </div>
+    </footer>
+  </body>
+</html>
