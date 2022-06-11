@@ -11,7 +11,19 @@ body {
   margin: 0;
   padding: 0;
 }
-
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  outline: none;
+  color: var(--quaternary-color);
+}
+ a:hover,
+a:active {
+  text-decoration: none;
+  color: var(--tertiary-color);
+}
 header,
 footer {
   text-align: center;
