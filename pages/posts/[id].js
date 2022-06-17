@@ -9,7 +9,11 @@ const ReactMarkdown = dynamic(
   () => import("react-markdown").then((module) => module.default),
   { ssr: false }
 );
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import {
+  dracula,
+  materialDarkhopscotch,
+  synthwave84,
+} from "react-syntax-highlighter/dist/cjs/styles/prism";
 import githubStyles from "../../styles/github-markdown.module.css";
 import markdownStyles from "../../styles/markdown.module.scss";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -49,7 +53,7 @@ const renderers = {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (
       <SyntaxHighlighter
-        style={dracula}
+        style={synthwave84}
         language={match[1]}
         PreTag="div"
         children={String(children).replace(/\n$/, "")}
