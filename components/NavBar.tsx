@@ -1,15 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import utilStyles from "../styles/utils.module.css";
+import { motion } from "framer-motion";
 import styles from "../styles/navbar.module.scss";
-import {
-  FaHome,
-  FaUser,
-  FaPizzaSlice,
-  FaAt,
-  FaDrawPolygon,
-} from "react-icons/fa";
 import {
   RiHome2Line,
   RiHome2Fill,
@@ -33,11 +26,14 @@ export default function NavBar() {
   //     let target = document.querySelector(".navMenu");
   //     observer.observe(target!);
   //   }, []);
+  const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
-  console.log("router", router);
   const { pathname } = router;
   const Links = ["home", "about", "posts"];
-
+  const variants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: "-100%" },
+  };
   // const Icons: { [key: string]: any } = {
   //   home: () =>
   //     pathname === "/" ? <RiHome2Fill size="20" /> : <RiHome2Line size="20" />,
@@ -85,5 +81,15 @@ export default function NavBar() {
       );
     });
   };
-  return <nav className={`${styles.nav}`}>{linkMaker(Links)}</nav>;
+  return (
+    <>
+      <motion.nav
+        className={isOpen ? `${styles.nav}` : undefined}
+        animate={isOpen ? "open" : "closed"}
+        variants={variants}
+      >
+        {linkMaker(Links)}
+      </motion.nav>
+    </>
+  );
 }
