@@ -6,17 +6,20 @@ import Layout from "../components/Layout";
 import Flame from "../components/Flame";
 import Neon from "../components/Neon";
 import Clock from "../components/Clock";
+import Script from "next/script";
 export default function App({ Component, pageProps }) {
-  console.log(pageProps);
   return (
-    <ApolloProvider client={client}>
-      <NavBar />
-      {/* <Layout> */}
-      <Component {...pageProps} />
-      {/* </Layout> */}
-      {/* <Clock /> */}
-      {/* <Neon /> */}
-      {/* <Flame /> */}
-    </ApolloProvider>
+    <>
+      <Script></Script>
+      <ApolloProvider client={client}>
+        <NavBar />
+        {/* <Layout> */}
+        <Component {...pageProps} />
+        {/* </Layout> */}
+        {/* <Clock /> */}
+        {/* <Neon /> */}
+        {/* <Flame /> */}
+      </ApolloProvider>
+    </>
   );
 }

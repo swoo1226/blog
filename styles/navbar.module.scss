@@ -21,6 +21,7 @@
   align-items: flex-end;
   gap: 4rem;
   background-color: $white-color;
+  height: fit-content;
   a {
     font-size: 1rem;
     line-height: 1.2rem;
@@ -89,12 +90,27 @@
 //     }
 // }
 
-// @media(max-width: 500px) {
-//     .nav {
-//         a {
-//             span {
-//                 display: none;
-//             }
-//         }
-//     }
-// }
+@media (max-width: 500px) {
+  .nav {
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: none;
+    bottom: 0;
+    top: unset;
+    border-bottom: none;
+    border-top: 2px solid $black-color;
+    height: 3.5rem;
+    gap: 3rem;
+    a {
+      padding: 1rem 1rem;
+      span {
+        display: none;
+      }
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}

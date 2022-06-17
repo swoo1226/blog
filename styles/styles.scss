@@ -154,7 +154,11 @@ img {
 main {
   padding: 2rem;
 }
-
+@media (max-width: 500px) {
+  main {
+    margin-bottom: 3.5rem;
+  }
+}
 // code {
 //   font-family: audiowide;
 // }
