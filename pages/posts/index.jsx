@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Layout from '../../components/Layout'
 import utilStyles from '../../styles/utils.module.css'
 import classNames from 'classnames'
-import homeStyles from '../../styles/Home.module.css'
+import homeStyles from '../../styles/Home.module.scss'
 import { getSortedPostsData } from '../../lib/posts'
 import { gql } from "@apollo/client"
 import client from "../../apollo-client"

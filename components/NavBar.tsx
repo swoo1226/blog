@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import utilStyles from "../styles/utils.module.css";
 import styles from "../styles/navbar.module.scss";
 import {
@@ -9,6 +10,14 @@ import {
   FaAt,
   FaDrawPolygon,
 } from "react-icons/fa";
+import {
+  RiHome2Line,
+  RiHome2Fill,
+  RiMentalHealthLine,
+  RiMentalHealthFill,
+  RiNewspaperFill,
+  RiNewspaperLine,
+} from "react-icons/ri";
 import React from "react";
 export default function NavBar() {
   //   useEffect(() => {
@@ -24,27 +33,57 @@ export default function NavBar() {
   //     let target = document.querySelector(".navMenu");
   //     observer.observe(target!);
   //   }, []);
-  const Links = ["home", "about", "posts", "contact", "neon"];
-  const Icons: { [key: string]: any } = {
-    home: () => <FaHome size="20" />,
-    about: () => <FaUser size="20" />,
-    posts: () => <FaPizzaSlice size="20" />,
-    contact: () => <FaAt size="20" />,
-    neon: () => <FaDrawPolygon size="20" />,
-  };
+  const router = useRouter();
+  console.log("router", router);
+  const { pathname } = router;
+  const Links = ["home", "about", "posts"];
+
+  // const Icons: { [key: string]: any } = {
+  //   home: () =>
+  //     pathname === "/" ? <RiHome2Fill size="20" /> : <RiHome2Line size="20" />,
+  //   about: () => <FaUser size="20" />,
+  //   posts: () => <FaPizzaSlice size="20" />,
+  //   contact: () => <FaAt size="20" />,
+  //   neon: () => <FaDrawPolygon size="20" />,
+  // };
+
+  const renderIcon = React.useCallback(
+    (link, isCurrentPath) => {
+      const iconOptions: { [key: string]: () => void } = {
+        home: () =>
+          isCurrentPath ? <RiHome2Fill size="20" /> : <RiHome2Line size="20" />,
+        about: () =>
+          isCurrentPath ? (
+            <RiMentalHealthFill size="20" />
+          ) : (
+            <RiMentalHealthLine size="20" />
+          ),
+        posts: () =>
+          isCurrentPath ? (
+            <RiNewspaperFill size="20" />
+          ) : (
+            <RiNewspaperLine size="20" />
+          ),
+      };
+      return iconOptions[link]();
+    },
+    [pathname]
+  );
   const linkMaker = (links: string[]) => {
-    return links.map((link: string) => (
-      <Link key={link} href={`/${link === "home" ? "" : link}`}>
-        <a
-        //   onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-        //     e.currentTarget.scrollIntoView({ behavior: "smooth" });
-        //   }}
-        >
-          {Icons[link]()}
-          <span>{link.toUpperCase()}</span>
-        </a>
-      </Link>
-    ));
+    return links.map((link: string) => {
+      let isCurrentPath = pathname.includes(link);
+      if (pathname === "/" && link === "home") isCurrentPath = true;
+      return (
+        <Link key={link} href={`/${link === "home" ? "" : link}`}>
+          <a>
+            {renderIcon(link, isCurrentPath)}
+            <span style={isCurrentPath ? { fontWeight: "bolder" } : undefined}>
+              {link.toUpperCase()}
+            </span>
+          </a>
+        </Link>
+      );
+    });
   };
   return <nav className={`${styles.nav}`}>{linkMaker(Links)}</nav>;
 }
