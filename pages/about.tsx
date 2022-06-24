@@ -1,10 +1,12 @@
+import { useState } from "react";
 import utilStyles from "../styles/utils.module.css";
 import Image from "next/image";
-export default function About() {
-  return (
-    <main>
-      <h2 className={utilStyles.headingLg}>About Me</h2>
-      <div></div>
-    </main>
-  );
+import List from "../components/List";
+
+const items = [0, 1, 2];
+
+function About() {
+  return <List items={items} selectedId={1} />;
 }
+
+export default About;
