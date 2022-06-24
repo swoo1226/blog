@@ -17,7 +17,7 @@ function Content() {
   );
 }
 
-function Item({ content }) {
+function Item({ content }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen(!isOpen);
   return (
@@ -33,12 +33,12 @@ function Item({ content }) {
   );
 }
 
-function List({ items }) {
+function List({ items }: any) {
   return (
     <AnimateSharedLayout>
       <motion.ul layout className={style.ul}>
-        {items.map((item) => (
-          <Item content={item.content} />
+        {items.map((item: any) => (
+          <Item key={item.content} content={item.content} />
         ))}
       </motion.ul>
     </AnimateSharedLayout>
