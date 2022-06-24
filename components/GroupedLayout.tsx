@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LayoutGroup, motion } from "framer-motion";
 
-function ToggleContent({ header, content }) {
+function ToggleContent({ header, content }: any) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ function ToggleContent({ header, content }) {
   );
 }
 
-function Submenu({ children }) {
+function Submenu({ children }: any) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -22,7 +22,7 @@ function Submenu({ children }) {
   );
 }
 
-export function GroupedLayout({ id }) {
+export function GroupedLayout({ id }: any) {
   return (
     <LayoutGroup id={id}>
       {new Array(10).fill(null).map((value, index) => (
