@@ -1,44 +1,62 @@
-import Layout from "../components/Layout";
-import utilStyles from "../styles/utils.module.css";
-import classNames from "classnames";
 import homeStyles from "../styles/Home.module.scss";
-import Image from "next/image";
-import {
-  useViewportScroll,
-  motion,
-  useTransform,
-  useMotionValue,
-} from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { useEffect } from "react";
-export default function Home(props: any) {
-  const { scrollY } = useViewportScroll();
-  const y1 = useTransform(scrollY, [0, 300], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 300], [0, -100]);
-  const [ref, inView, entry] = useInView({
-    /* Optional options */
-    threshold: 0.5,
-    triggerOnce: false,
-  });
+import { motion, Variants } from "framer-motion";
 
-  const variants = {
-    visible: { opacity: 1, scale: 1, y: 0 },
-    hidden: {
-      opacity: 0,
-      scale: 0.65,
+interface Props {
+  emoji: string;
+  hueA: number;
+  hueB: number;
+}
+
+export default function Home(props: any) {
+  const cardVariants: Variants = {
+    offscreen: {
+      y: 300,
+    },
+    onscreen: {
       y: 50,
+      rotate: -10,
+      transition: {
+        type: "spring",
+        bounce: 0.2,
+        duration: 0.8,
+      },
     },
   };
-  return (
-    <main className={homeStyles.main}>
-      <div style={{ height: "100vh" }} />
+  const hue = (h: number) => `hsl(${h}, 100%, 50%)`;
+
+  function Card({ emoji, hueA, hueB }: Props) {
+    const background = `linear-gradient(306deg, ${hue(hueA)}, ${hue(hueB)})`;
+
+    return (
       <motion.div
-        animate={inView ? "visible" : "hidden"}
-        variants={variants}
-        transition={{ duration: 2, ease: "easeOut" }}
-        ref={ref}
-        className={homeStyles.magic}
-      />
+        className={homeStyles["card-container"]}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.8 }}
+      >
+        <div className={homeStyles.splash} style={{ background }} />
+        <motion.div className={homeStyles.card} variants={cardVariants}>
+          {emoji}
+        </motion.div>
+      </motion.div>
+    );
+  }
+
+  const food: [string, number, number][] = [
+    ["🍅", 340, 10],
+    ["🍊", 20, 40],
+    ["🍋", 60, 90],
+    ["🍐", 80, 120],
+    ["🍏", 100, 140],
+    ["🫐", 205, 245],
+    ["🍆", 260, 290],
+    ["🍇", 290, 320],
+  ];
+  return (
+    <main>
+      {food.map(([emoji, hueA, hueB]) => (
+        <Card emoji={emoji} hueA={hueA} hueB={hueB} key={emoji} />
+      ))}
     </main>
   );
 }

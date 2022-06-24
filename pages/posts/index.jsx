@@ -4,8 +4,8 @@ import utilStyles from "../../styles/utils.module.css";
 import classNames from "classnames";
 import homeStyles from "../../styles/Home.module.scss";
 import { getSortedPostsData } from "../../lib/posts";
-import { gql } from "@apollo/client";
-import client from "../../apollo-client";
+// import { gql } from "@apollo/client";
+// import client from "../../apollo-client";
 import { motion } from "framer-motion";
 
 const container = {
@@ -60,27 +60,27 @@ export default function Posts({ allPostsData, countries }) {
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  // const response = await client.query({
-  //     query: gql`
-  //   query Countries {
-  //     countries {
-  //       code
-  //       name
-  //       emoji
-  //     }
-  //     languages {
-  //       code
-  //       name
-  //       native
-  //     }
-  //   }
-  // `
-  // })
-  // const { data } = response
+  const response = await client.query({
+    query: gql`
+      query Countries {
+        countries {
+          code
+          name
+          emoji
+        }
+        languages {
+          code
+          name
+          native
+        }
+      }
+    `,
+  });
+  const { data } = response;
   return {
     props: {
       allPostsData,
-      // countries: data.countries.slice(0, 4)
+      countries: data.countries.slice(0, 4),
     },
   };
 }

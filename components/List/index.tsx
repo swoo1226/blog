@@ -33,7 +33,7 @@ function Item({ content }) {
   );
 }
 
-function List({ items, selectedId }) {
+function List({ items }) {
   return (
     <AnimateSharedLayout>
       <motion.ul layout className={style.ul}>
