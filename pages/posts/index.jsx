@@ -60,27 +60,27 @@ export default function Posts({ allPostsData, countries }) {
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  const response = await client.query({
-    query: gql`
-      query Countries {
-        countries {
-          code
-          name
-          emoji
-        }
-        languages {
-          code
-          name
-          native
-        }
-      }
-    `,
-  });
-  const { data } = response;
+  // const response = await client.query({
+  //   query: gql`
+  //     query Countries {
+  //       countries {
+  //         code
+  //         name
+  //         emoji
+  //       }
+  //       languages {
+  //         code
+  //         name
+  //         native
+  //       }
+  //     }
+  //   `,
+  // });
+  // const { data } = response;
   return {
     props: {
       allPostsData,
-      countries: data.countries.slice(0, 4),
+      // countries: data.countries.slice(0, 4),
     },
   };
 }
