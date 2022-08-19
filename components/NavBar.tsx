@@ -74,9 +74,9 @@ export default function NavBar() {
   const linkMaker = (links: string[]) => {
     return links.map((link: string) => {
       let isCurrentPath = pathname.includes(link);
-      if (pathname === "/blog" && link === "home") isCurrentPath = true;
+      if (pathname === "/" && link === "home") isCurrentPath = true;
       return (
-        <Link key={link} href={`/${link === "home" ? "blog" : link}`}>
+        <Link key={link} href={`/${link === "home" ? "" : link}`}>
           <a>
             {renderIcon(link, isCurrentPath)}
             <span style={isCurrentPath ? { fontWeight: "bolder" } : undefined}>

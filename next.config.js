@@ -3,6 +3,7 @@ const nextConfig = {
   devIndicators: {
     buildActivity: false,
   },
+  basePath: '/blog'
 };
 
 module.exports = nextConfig;
