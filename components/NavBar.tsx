@@ -29,7 +29,7 @@ export default function NavBar() {
   const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
   const { pathname } = router;
-  const Links = ["home", "about", "posts"];
+  const Links = ["home", "about", "posts", "repo1"];
   const variants = {
     open: { opacity: 1, x: 0 },
     closed: { opacity: 0, x: "-100%" },
@@ -60,6 +60,12 @@ export default function NavBar() {
           ) : (
             <RiNewspaperLine size="20" />
           ),
+        repo1: () =>
+          isCurrentPath ? (
+            <RiNewspaperFill size="20" />
+          ) : (
+            <RiNewspaperLine size="20" />
+          ),
       };
       return iconOptions[link]();
     },
@@ -68,9 +74,9 @@ export default function NavBar() {
   const linkMaker = (links: string[]) => {
     return links.map((link: string) => {
       let isCurrentPath = pathname.includes(link);
-      if (pathname === "/" && link === "home") isCurrentPath = true;
+      if (pathname === "/blog" && link === "home") isCurrentPath = true;
       return (
-        <Link key={link} href={`/${link === "home" ? "" : link}`}>
+        <Link key={link} href={`/${link === "home" ? "blog" : link}`}>
           <a>
             {renderIcon(link, isCurrentPath)}
             <span style={isCurrentPath ? { fontWeight: "bolder" } : undefined}>
